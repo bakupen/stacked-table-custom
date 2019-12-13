@@ -15,22 +15,10 @@ export default {
   data() {
     return {
       fields: [
-        {
-          key: 'id',
-          label: '商品コード'
-        },
-        {
-          key: 'name',
-          label: '商品名'
-        },
-        {
-          key: 'group',
-          label: '菓子'
-        },
-        {
-          key: 'allergies',
-          label: 'アレルギー'
-        },
+        { key: 'id', label: '商品コード' },
+        { key: 'name', label: '商品名' },
+        { key: 'group', label: '分類' },
+        { key: 'allergies', label: 'アレルギー' },
       ],
       items: [
         {
@@ -48,7 +36,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .content-area {
-  width: 700px;
+  width: 550px;
   margin: auto;
 }
 </style>

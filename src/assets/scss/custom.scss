@@ -1,0 +1,62 @@
+$b-table-stacked-heading-width: 27%;
+
+// Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-vue/src";
+
+.table {
+  td {
+    border-top: 0px;
+  }
+}
+
+@if $bv-enable-table-stacked {
+  .table.b-table {
+    &.b-table-stacked {
+      @each $breakpoint in map-keys($grid-breakpoints) {
+        $next: breakpoint-next($breakpoint, $grid-breakpoints);
+        $infix: breakpoint-infix($next, $grid-breakpoints);
+
+        &#{$infix} {
+          @include media-breakpoint-down($breakpoint) {
+
+            > tbody {
+              > tr {
+                > td {
+                  min-height: 48px;
+                  padding: 0;
+                  position: relative;
+                }
+                > td:nth-of-type(odd) {
+                  background-color: $table-accent-bg;
+                }
+                > [data-label] {
+                  > div {
+                    width: 100%;
+                    padding: $table-cell-padding;
+                    padding-left: 29%;
+                  }
+                  &::before {
+                    text-align: left;
+                    font-weight: normal;
+                    color: #ffffff;
+                    background-color: #ca1818;
+                    padding: $table-cell-padding;
+                    position: absolute;
+                    height: 100%;
+                    margin:auto;
+                  }
+                }
+                > [data-label]:nth-of-type(odd) {
+                  &::before {
+                    background-color: #157512;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
